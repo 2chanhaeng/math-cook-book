@@ -22,8 +22,7 @@ function App() {
           Hi! This is my first React app.
         </p>
         {/* 입력을 받아서 출력하는 컴포넌트 */}
-        <NumInput onChange={
-          function (value: any) {
+        <NumInput onChange={(value: any) => {
             console.log(value);
         }}/>
         <a
