@@ -113,27 +113,143 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <div>
-          {/* If input get a number, then focus next input. */}
-            <NumInput onChange={(event: any, value: any) => {
+        <div style={{display: 'flex', alignItems: "flex-end"}}>
+          <p>×</p>
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={{display: 'flex-inline'}}>
+              <NumInput
+                color = "yellow"
+                onChange={(event: any, value: any) => {
+                  focusNextNumInput(event);
+                }}
+                />
+              <NumInput
+                color = "orange"
+                onChange={(event: any, value: any) => {
+                  focusNextNumInput(event);
+                }}
+                />
+              <NumInput
+                color = "red"
+                onChange={(event: any, value: any) => {
+                  focusNextNumInput(event);
+                }}
+                />
+            </div>
+            <div style={{display: 'flex-inline'}}>
+              <NumInput
+                color = "#a0c"
+                onChange={(event: any, value: any) => {
+                  focusNextNumInput(event);
+                }}
+                />
+              <NumInput
+                color = "blue"
+                onChange={(event: any, value: any) => {
+                  focusNextNumInput(event);
+                }}
+                />
+                <NumInput
+                  color = "green"
+                  onChange={(event: any, value: any) => {
+                  }}
+                  />
+            </div>
+          </div>
+        </div>
+        <div style={{backgroundColor : 'white', width: 'min(55vh, 55vw)', height:'1vh', margin: '2vh'}}/>
+        <div  style={{display: 'flex', flexDirection: 'column', alignItems: "flex-end"}}>
+          <div style={{display: 'flex', alignItems: "flex-end"}}>
+            <p>×</p>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+              <div style={{display: 'flex-inline'}}>
+                <NumInput
+                  color = "yellow"
+                  onChange={(event: any, value: any) => {
+                    focusNextNumInput(event);
+                  }}
+                  />
+                <NumInput
+                  color = "orange"
+                  onChange={(event: any, value: any) => {
+                    focusNextNumInput(event);
+                  }}
+                  />
+                <NumInput
+                  color = "red"
+                  onChange={(event: any, value: any) => {
+                    focusNextNumInput(event);
+                  }}
+                  />
+              </div>
+              <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                  <NumInput
+                    color = "green"
+                    onChange={(event: any, value: any) => {
+                    }}
+                  />
+              </div>
+            </div>
+          </div>
+          <div style={{backgroundColor : 'white', width: 'min(55vh, 55vw)', height:'1vh', margin: '2vh'}}/>
+          <div style={{display: 'flex', flexDirection: "row"}}>
+            <NumInput
+              color = "red"
+              onChange={(event: any, value: any) => {
                 focusNextNumInput(event);
             }}/>
-            <NumInput onChange={(event: any, value: any) => {
+            <p>×</p>
+            <NumInput
+              color = "green"
+              onChange={(event: any, value: any) => {
                 focusNextNumInput(event);
             }}/>
-            <NumInput onChange={(event: any, value: any) => {
+            <p>=</p>
+            <Num2Input
+              color = "red"
+              margin = "2"
+              onChange={(event: any, value: any) => {
                 focusNextNumInput(event);
             }}/>
           </div>
-          <div>
-            <NumInput onChange={(event: any, value: any) => {
+          <div style={{display: 'flex', flexDirection: "row"}}>
+            <NumInput
+              color = "orange"
+              onChange={(event: any, value: any) => {
                 focusNextNumInput(event);
             }}/>
-            <NumInput onChange={(event: any, value: any) => {
+            <p>×</p>
+            <NumInput
+              color = "green"
+              onChange={(event: any, value: any) => {
                 focusNextNumInput(event);
             }}/>
-            <NumInput onChange={(event: any, value: any) => {
+            <p>=</p>
+            <Num2Input
+              color = "orange"
+              margin = "1"
+              onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+          </div>
+          <div style={{display: 'flex', flexDirection: "row"}}>
+            <NumInput
+              color = "yellow"
+              onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <p>×</p>
+            <NumInput
+              color = "green"
+              onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <p>=</p>
+            <Num2Input
+              color = "yellow"
+              margin = "0"
+              onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
             }}/>
           </div>
         </div>
@@ -141,5 +257,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
