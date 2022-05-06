@@ -23,6 +23,7 @@ input{
   font-size: min(10vw, 10vh);
   width: min(11vw, 11vh);
   height: min(11vw, 11vh);
+  text-align: center;
 }
 
 code {
