@@ -25,6 +25,17 @@ function App() {
         if (next !== null) {
           next.focus();
         }
+      } else {
+        const parentDiv = div.parentNode as HTMLElement | null;
+        if (parentDiv !== null) {
+          const nextDiv = parentDiv.children[1] as HTMLElement | null;
+          if (nextDiv !== null) {
+            const jump = nextDiv.children[0] as HTMLElement | null;
+            if (jump !== null) {
+              jump.focus();
+            }
+          }
+        }
       }
     }
   }
