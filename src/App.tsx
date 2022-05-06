@@ -3,12 +3,40 @@ import './App.css';
 
 // 숫자 하나를 입력 받는 컴포넌트
 function NumInput(props: any) {
-  const onChange = (e: any) => {
-    e.target.value = e.target.value % 10;
-    props.onChange(e, e.target.value);
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target as HTMLInputElement;
+    // If the value is not a number, clear the input
+    if (isNaN(Number(input.value))) {
+      input.value = '';
+    }
+    if (input.value !== '') {
+      input.value = input.value.slice(-1);
+      input.style.backgroundColor = 'transparent';
+    } else {
+      input.style.backgroundColor = props.color;
+    }
+    props.onChange(event, event.target.value);
+  }
+
+  // The font color is props.color
+  // If input has a value then textarea is transparent
+  // else the textarea color is props.color
+  // const style = {
+  //   color: props.color,
+  // }
+  const style = {
+    backgroundColor: props.color,
+    color: props.color,
+    border: 'none',
+    borderRadius: 'min(3vh, 3vw)',
+    margin: 'min(1vh, 1vw)'
   }
   return (
-    <input type="number" onChange={onChange} />
+    <input
+      type="number"
+      onChange={onChange}
+      style={style}
+      />
   )
 }
 
