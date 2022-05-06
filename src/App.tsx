@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 // 숫자 하나를 입력 받는 컴포넌트
