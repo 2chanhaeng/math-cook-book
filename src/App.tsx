@@ -5,6 +5,7 @@ import './App.css';
 // 숫자 하나를 입력 받는 컴포넌트
 function NumInput(props: any) {
   const onChange = (e: any) => {
+    e.target.value = e.target.value % 10;
     props.onChange(e, e.target.value);
   }
   return (
