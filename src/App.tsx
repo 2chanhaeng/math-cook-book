@@ -37,18 +37,28 @@ function App() {
           Hi! This is my first React app.
         </p>
         <div>
-        {/* If input get a number, then focus next input. */}
-          <NumInput onChange={(event: any, value: any) => {
-              focusNextNumInput(event);
-              console.log(value);
-          }}/>
-          <NumInput onChange={(event: any, value: any) => {
-              focusNextNumInput(event);
-              console.log(value);
-          }}/>
-          <NumInput onChange={(event: any, value: any) => {
-              console.log(value);
-          }}/>
+          <div>
+          {/* If input get a number, then focus next input. */}
+            <NumInput onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <NumInput onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <NumInput onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+          </div>
+          <div>
+            <NumInput onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <NumInput onChange={(event: any, value: any) => {
+                focusNextNumInput(event);
+            }}/>
+            <NumInput onChange={(event: any, value: any) => {
+            }}/>
+          </div>
         </div>
         <a
           className="App-link"
