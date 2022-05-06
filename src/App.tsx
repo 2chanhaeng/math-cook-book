@@ -40,6 +40,49 @@ function NumInput(props: any) {
   )
 }
 
+function Num2Input(props: any) {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target as HTMLInputElement;
+    // If the value is not a number, clear the input
+    if (isNaN(Number(input.value))) {
+      input.value = '';
+    }
+    if (input.value !== '') {
+      input.value = input.value.slice(-2);
+      input.style.backgroundColor = 'transparent';
+    } else {
+      input.style.backgroundColor = props.color;
+    }
+    props.onChange(event, event.target.value);
+  }
+
+  // The font color is props.color
+  // If input has a value then textarea is transparent
+  // else the textarea color is props.color
+  // const style = {
+  //   color: props.color,
+  // }
+  const marginLeft_ = props.margin ? 11 * props.margin + 1 * (props.margin - 1): 0;
+  const r = 2 - props.margin;
+  const marginRight_ = r ? 11 * r + 1 * (r - 1): 0;
+  const style = {
+    backgroundColor: props.color,
+    color: props.color,
+    border: 'none',
+    borderRadius: 'min(3vh, 3vw)',
+    marginLeft : `min(${marginLeft_}vw, ${marginLeft_}vh)`,
+    marginRight : `min(${marginRight_}vw, ${marginRight_}vh)`,
+    margin: 'min(1vh, 1vw)',
+    width: 'min(23vw, 23vh)',
+  }
+  return (
+    <input
+      type="number"
+      onChange={onChange}
+      style={style}
+      />
+  )
+}
 
 function App() {
   const focusNextNumInput = (event: React.ChangeEvent<HTMLInputElement>) => {
