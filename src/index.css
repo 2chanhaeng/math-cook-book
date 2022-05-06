@@ -26,6 +26,16 @@ input{
   text-align: center;
 }
 
+p{
+  font-size: min(10vw, 10vh);
+  font-family: 'Rubik';
+  width: min(11vw, 11vh);
+  height: min(11vw, 11vh);
+  text-align: center;
+  margin: 0 0 min(2vw, 2vh) 0;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
