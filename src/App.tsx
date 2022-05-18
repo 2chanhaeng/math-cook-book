@@ -27,9 +27,6 @@ function NumInput(props: any) {
   const style = {
     backgroundColor: props.color,
     color: props.color,
-    border: 'none',
-    borderRadius: 'min(3vh, 3vw)',
-    margin: 'min(1vh, 1vw)'
   }
   return (
     <input
@@ -68,11 +65,8 @@ function Num2Input(props: any) {
   const style = {
     backgroundColor: props.color,
     color: props.color,
-    border: 'none',
-    borderRadius: 'min(3vh, 3vw)',
     marginLeft : `min(${marginLeft_}vw, ${marginLeft_}vh)`,
     marginRight : `min(${marginRight_}vw, ${marginRight_}vh)`,
-    margin: 'min(1vh, 1vw)',
     width: 'min(23vw, 23vh)',
   }
   return (

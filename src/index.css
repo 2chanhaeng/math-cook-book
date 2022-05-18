@@ -21,16 +21,19 @@ input[type="number"]::-webkit-inner-spin-button {
 input{
   font-family: 'Rubik';
   font-size: min(10vw, 10vh);
-  width: min(11vw, 11vh);
-  height: min(11vw, 11vh);
+  width: var(--default-cell-size);
+  height: var(--default-cell-size);
+  border-radius: min(3vh, 3vw);
   text-align: center;
+  border: none;
+  margin: min(1vh, 1vw);
 }
 
 p{
   font-size: min(10vw, 10vh);
   font-family: 'Rubik';
-  width: min(11vw, 11vh);
-  height: min(11vw, 11vh);
+  width: var(--default-cell-size);
+  height: var(--default-cell-size);
   text-align: center;
   margin: 0 0 min(2vw, 2vh) 0;
 }
@@ -39,4 +42,8 @@ p{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root{
+  --default-cell-size: min(11vw, 11vh);
 }
