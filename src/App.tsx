@@ -59,24 +59,65 @@ function Num2Input(props: any) {
   // const style = {
   //   color: props.color,
   // }
-  const marginLeft_ = props.margin ? 11 * props.margin + 1 * (props.margin - 1): 0;
-  const r = 2 - props.margin;
-  const marginRight_ = r ? 11 * r + 1 * (r - 1): 0;
+  const marginLeft_ = [0, 11, 22][props.margin];
+  const marginRight_ = [23, 12, 1][props.margin];
   const style = {
     backgroundColor: props.color,
     color: props.color,
     marginLeft : `min(${marginLeft_}vw, ${marginLeft_}vh)`,
     marginRight : `min(${marginRight_}vw, ${marginRight_}vh)`,
-    width: 'min(23vw, 23vh)',
   }
   return (
     <input
       type="number"
+      className='num2'
       onChange={onChange}
       style={style}
       />
   )
 }
+
+//세로식
+function VerticalForm(props: any) {
+  const onChange = props.onChange;
+  const lowerLast = props.lower.length - 1;
+  return (
+    <div style={{display: 'flex', alignItems: "flex-end"}}>
+      <p>×</p>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+          { 
+            props.upper.map((color: String) => (
+              <NumInput
+                color = {color}
+                onChange = {(event: any, value: any) => {
+                  onChange(event);
+                }}
+                key = {`upper${color}`}
+              />
+            ))
+          }
+        </div>
+        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+          { 
+            props.lower.map((color: String, index: number) => (
+              <NumInput
+                color = {color}
+                onChange = {(event: any, value: any) => {
+                  if (index !== lowerLast) {
+                    onChange(event);
+                  }
+                }}
+                key = {`lower${color}`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+
 
 function App() {
   const focusNextNumInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,84 +148,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div style={{display: 'flex', alignItems: "flex-end"}}>
-          <p>×</p>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <div style={{display: 'flex-inline'}}>
-              <NumInput
-                color = "yellow"
-                onChange={(event: any, value: any) => {
-                  focusNextNumInput(event);
-                }}
-                />
-              <NumInput
-                color = "orange"
-                onChange={(event: any, value: any) => {
-                  focusNextNumInput(event);
-                }}
-                />
-              <NumInput
-                color = "red"
-                onChange={(event: any, value: any) => {
-                  focusNextNumInput(event);
-                }}
-                />
-            </div>
-            <div style={{display: 'flex-inline'}}>
-              <NumInput
-                color = "#a0c"
-                onChange={(event: any, value: any) => {
-                  focusNextNumInput(event);
-                }}
-                />
-              <NumInput
-                color = "blue"
-                onChange={(event: any, value: any) => {
-                  focusNextNumInput(event);
-                }}
-                />
-                <NumInput
-                  color = "green"
-                  onChange={(event: any, value: any) => {
-                  }}
-                  />
-            </div>
-          </div>
-        </div>
+        <VerticalForm
+          onChange = {focusNextNumInput}
+          upper = {["yellow", "orange", "red"]}
+          lower = {["#a0c","blue","green"]}
+        />
         <div style={{backgroundColor : 'white', width: 'min(55vh, 55vw)', height:'1vh', margin: '2vh'}}/>
         <div  style={{display: 'flex', flexDirection: 'column', alignItems: "flex-end"}}>
-          <div style={{display: 'flex', alignItems: "flex-end"}}>
-            <p>×</p>
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-              <div style={{display: 'flex-inline'}}>
-                <NumInput
-                  color = "yellow"
-                  onChange={(event: any, value: any) => {
-                    focusNextNumInput(event);
-                  }}
-                  />
-                <NumInput
-                  color = "orange"
-                  onChange={(event: any, value: any) => {
-                    focusNextNumInput(event);
-                  }}
-                  />
-                <NumInput
-                  color = "red"
-                  onChange={(event: any, value: any) => {
-                    focusNextNumInput(event);
-                  }}
-                  />
-              </div>
-              <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                  <NumInput
-                    color = "green"
-                    onChange={(event: any, value: any) => {
-                    }}
-                  />
-              </div>
-            </div>
-          </div>
+        <VerticalForm
+          onChange = {focusNextNumInput}
+          upper = {["yellow", "orange", "red"]}
+          lower = {["green"]}
+        />
           <div style={{backgroundColor : 'white', width: 'min(55vh, 55vw)', height:'1vh', margin: '2vh'}}/>
           <div style={{display: 'flex', flexDirection: "row"}}>
             <NumInput

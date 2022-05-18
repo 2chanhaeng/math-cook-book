@@ -24,9 +24,14 @@ input{
   width: var(--default-cell-size);
   height: var(--default-cell-size);
   border-radius: min(3vh, 3vw);
-  text-align: center;
   border: none;
   margin: min(1vh, 1vw);
+  text-align: center;
+}
+
+input.num2{
+  width: min(23vw, 23vh);
+  letter-spacing: calc(var(--default-cell-size) / 2);
 }
 
 p{
